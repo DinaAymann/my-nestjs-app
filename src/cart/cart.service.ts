@@ -24,6 +24,7 @@ export class CartService {
       cart = new this.cartModel({
         user_id,
         items: [{ product_id, quantity }],
+        total_price: product.price * quantity,
       });
     } else {
       // Check if the product is already in the cart
@@ -34,9 +35,12 @@ export class CartService {
       if (productIndex > -1) {
         // If the product exists in the cart, update the quantity
         cart.items[productIndex].quantity += quantity;
+        cart.total_price += product.price;
       } else {
         // If the product doesn't exist in the cart, add it as a new item
         cart.items.push({ product_id: new Types.ObjectId(product_id), quantity });
+        cart.total_price += product.price;
+
       }
     }
 

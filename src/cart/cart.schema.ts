@@ -21,6 +21,9 @@ export class Cart {
   })
   items: { product_id: Types.ObjectId; quantity: number }[];
 
+  @Prop({ default: 0 })
+  total_price: number; 
+
   @Prop({ default: Date.now })
   created_at: Date;
 
