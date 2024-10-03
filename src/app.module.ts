@@ -14,6 +14,5 @@ import { VendorController } from './vendor/vendor.controller';
     ProductModule,
     CartModule,
   ],
-  controllers: [VendorController],
 })
 export class AppModule {}
